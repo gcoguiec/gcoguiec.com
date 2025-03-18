@@ -1,0 +1,25 @@
+{
+  "extends": "@gcoguiec/tsconfig",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": [
+      "node",
+      "vitest",
+      "vite/client",
+      "@intlify/unplugin-vue-i18n/messages",
+      "unplugin-vue-macros/macros-global",
+      "unplugin-vue-router/client"
+    ],
+    "paths": {
+      "~lib/*": ["./lib/*"],
+      "~/*": ["./src/*"]
+    },
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true
+  },
+  "include": ["**/*.ts", "**/*.vue", "./shim.d.ts", "./typed-router.d.ts"],
+  "exclude": ["_site", "node_modules", "cypress.config.ts", "cypress"]
+}

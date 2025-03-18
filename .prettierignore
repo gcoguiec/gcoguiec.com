@@ -1,0 +1,4 @@
+*.scss
+coverage
+_site
+typed-router.d.ts

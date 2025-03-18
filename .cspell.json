@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en-US",
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/**/CHANGELOG.md",
+    "**/**/LICENSE.md",
+    "**/*.{json5,snap}",
+    ".cspell.json",
+    "_site/**",
+    "coverage/**",
+    "src/pages/**.vue",
+    ".vite/**"
+  ],
+  "dictionaries": [
+    "typescript",
+    "softwareTerms",
+    "node",
+    "en_CA",
+    "npm",
+    "misc",
+    "filetypes"
+  ],
+  "ignoreRegExpList": [
+    "/```[\\w\\W]*?```/",
+    "/~~~[\\w\\W]*?~~~/",
+    "/``[\\w\\W]*?``/",
+    "/`[^`]*`/",
+    "/TS[^\\s]+/",
+    "\\(#.+?\\)"
+  ],
+  "words": ["unplugin"],
+  "overrides": [
+    {
+      "filename": "**/*.{ts,js}",
+      "ignoreRegExpList": ["/@[a-z]+/", "/#(end)?region/"],
+      "includeRegExpList": [
+        "/\\/\\*[\\s\\S]*?\\*\\/|([^\\\\:]|^)\\/\\/.*$/",
+        "/(\\/\\/[^\\n\\r]*[\\n\\r]+)/"
+      ]
+    }
+  ]
+}
