@@ -2,7 +2,7 @@ alias b := build
 alias i := install
 alias d := dev
 alias p := preview
-alias ss := spellcheck
+alias sc := spellcheck
 alias tc := typecheck
 alias l := lint
 alias lf := lint-fix
@@ -10,6 +10,8 @@ alias ls := lint-styles
 alias lsf := lint-styles-fix
 alias u := unit
 alias uc := unit-cov
+alias e := e2e
+alias eu := e2e-ui
 
 _default:
   @just --list
@@ -34,6 +36,7 @@ _husky-prepush:
 build:
   @just _vite-ssg build
   cp _site/not-found/index.html _site/404.html
+  rm -fr _site/.vite
 
 # Installs microsite dependencies.
 install:
