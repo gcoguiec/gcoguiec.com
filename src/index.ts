@@ -14,7 +14,16 @@ const i18n = createI18n({
 
 export const createApp = ViteSSG(
   App,
-  { routes },
+  {
+    routes: [
+      ...routes,
+      {
+        name: 'notfound',
+        path: '/:notfound(.*)*',
+        component: () => import('~/pages/not-found.vue')
+      }
+    ]
+  },
   ({ app }) => {
     app.use(i18n);
   },

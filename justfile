@@ -33,6 +33,7 @@ _husky-prepush:
 # Builds the microsite into `_site` folder.
 build:
   @just _vite-ssg build
+  cp _site/not-found/index.html _site/404.html
 
 # Installs microsite dependencies.
 install:
