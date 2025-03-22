@@ -1,0 +1,85 @@
+@use 'true' as *;
+@use 'units' as *;
+
+@include describe('strip-unit()') {
+  @include it('strips the unit from input') {
+    @include assert-equal(strip-unit(1px), 1);
+    @include assert-equal(strip-unit(12em), 12);
+    @include assert-equal(strip-unit(9rem), 9);
+    @include assert-equal(strip-unit(3deg), 3);
+    @include assert-equal(strip-unit(16%), 16);
+  }
+}
+
+@include describe('convert()') {
+  @include describe('when value is not a number') {
+    @include it('throws an error') {
+      @include assert-equal(convert('solid 1px'),
+        'Error [convert()]: Value "solid 1px" is not a number.');
+    }
+  }
+
+  @include describe('when base is not a number') {
+    @include it('throws an error') {
+      @include assert-equal(convert(64px, '16px'),
+        'Error [convert()]: Base "16px" is not a number.');
+    }
+  }
+
+  @include describe('when base is set to 16px') {
+    $base: 16px;
+
+    @include describe('when value is zero') {
+      @include it('returns zero') {
+        @include assert-equal(convert(0, $base), 0);
+      }
+    }
+
+    @include describe('when input is provided in em') {
+      @include it('converts em to rem verbatim') {
+        @include assert-equal(convert(2em, $base), 2rem);
+      }
+    }
+
+    @include describe('when input is provided in pixels') {
+      @include it('converts pixels to rem') {
+        @include assert-equal(convert(32px, $base), 2rem);
+      }
+    }
+  }
+}
+
+@include describe('to-rem()') {
+  @include describe('when base is a percentage') {
+    $base: 50%;
+
+    @include it('converts to rem using a fraction of the root value') {
+      @include assert-equal(to-rem(32px, $base), 4rem);
+    }
+  }
+
+  @include describe('when base is in rem') {
+    $base: 3rem;
+
+    @include it('converts to rem using rem value') {
+      @include assert-equal(to-rem(144px, $base), 3rem);
+    }
+  }
+
+  @include describe('when base is not provided') {
+    @include it('convers vale to rem') {
+      @include assert-equal(to-rem(1), 0.0625rem);
+      @include assert-equal(to-rem(56), 3.5rem);
+      @include assert-equal(to-rem(128), 8rem);
+      @include assert-equal(to-rem(3840), 240rem);
+    }
+  }
+
+  @include describe('when providing multiple values') {
+    $values: 32px, 64px;
+
+    @include it('converts values to rem') {
+      @include assert-equal(to-rem($values), 2rem 4rem);
+    }
+  }
+}
