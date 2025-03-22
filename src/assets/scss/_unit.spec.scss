@@ -58,7 +58,7 @@
     }
   }
 
-  @include describe('when base is in rem') {
+  @include describe('when base is provided in rem') {
     $base: 3rem;
 
     @include it('converts to rem using rem value') {
@@ -67,7 +67,7 @@
   }
 
   @include describe('when base is not provided') {
-    @include it('convers vale to rem') {
+    @include it('convers value to rem') {
       @include assert-equal(unit.to-rem(1), 0.0625rem);
       @include assert-equal(unit.to-rem(56), 3.5rem);
       @include assert-equal(unit.to-rem(128), 8rem);
@@ -75,7 +75,7 @@
     }
   }
 
-  @include describe('when providing multiple values') {
+  @include describe('when multiple values are provided') {
     $values: 32px, 64px;
 
     @include it('converts values to rem') {
