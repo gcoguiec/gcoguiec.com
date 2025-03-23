@@ -9,7 +9,7 @@
         if (!window.localStorage || !window.matchMedia) {
           return;
         }
-        const setting = window.localStorage.getItem('fn.theme') || 'system';
+        const setting = window.localStorage.getItem('gc.theme') || 'system';
         const preference = window.matchMedia('(prefers-color-scheme: dark)')
           .matches
           ? 'dark'
@@ -25,7 +25,7 @@
     <meta name="theme-color" content="#c499ff" />
   </head>
   <body>
-    <div id="gc"></div>
+    <div id="gc" class="gc-app"></div>
     <script type="module" src="./src/index.ts"></script>
   </body>
 </html>

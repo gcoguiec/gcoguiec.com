@@ -1,0 +1,54 @@
+@use 'error';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+
+// Strips unit from provided value.
+@function strip($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+// Converts unit value to rem with a specific base.
+@function to-rem-with-base($value, $base: null) {
+  @if meta.type-of($value) != 'number' {
+    @return error.throw_to_catch(
+      $message: 'Value #{meta.inspect($value)} is not a number.',
+      $source: 'to-rem-with-base()'
+    );
+  }
+  @if meta.type-of($base) != 'number' {
+    @return error.throw_to_catch(
+      $message: 'Base #{meta.inspect($base)} is not a number.',
+      $source: 'to-rem-with-base()'
+    );
+  }
+  @if $value == 0 {
+    @return 0;
+  }
+  @if math.unit($value) == 'em' {
+    $value: strip($value) * 1rem;
+  }
+  @if math.unit($value) != 'rem' {
+    $value: math.div(strip($value), strip($base)) * 1rem;
+  }
+  @return $value;
+}
+
+// Converts unit value(s) to rem.
+@function to-rem($values, $base: 100%) {
+  $rem-values: ();
+  $count: list.length($values);
+  @if math.unit($base) == '%' {
+    $base: math.div($base, 100%) * 16px;
+  }
+  @if math.unit($base) == 'rem' {
+    $base: strip($base) * 16px;
+  }
+  @if $count == 1 {
+    @return to-rem-with-base($values, $base);
+  }
+  @for $i from 1 through $count {
+    $rem-values: list.append($rem-values, to-rem-with-base(list.nth($values, $i), $base));
+  }
+  @return $rem-values;
+}

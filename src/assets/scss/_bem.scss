@@ -1,0 +1,35 @@
+@use 'constants';
+
+@function block_selector($name) {
+  @return '.' + constants.$namespace + '-' + $name;
+}
+
+@function element_selector($name, $block: &) {
+  @return #{$block + '__' + $name};
+}
+
+@function modifier_selector($name, $block: &) {
+  @return #{$block + '_' + $name};
+}
+
+@mixin block($name) {
+  #{block_selector($name)} {
+    @content;
+  }
+}
+
+@mixin element($name, $block: &) {
+  @at-root {
+    #{element_selector($name, $block)} {
+      @content;
+    }
+  }
+}
+
+@mixin modifier($name, $block: &) {
+  @at-root {
+    #{modifier_selector($name, $block)} {
+      @content;
+    }
+  }
+}

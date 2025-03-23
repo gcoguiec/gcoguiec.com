@@ -1,0 +1,147 @@
+@use 'true' as *;
+@use 'bem';
+
+@include describe('block_selector()') {
+  @include it('returns a block with correct namespace prefix') {
+    @include assert {
+      @include output {
+        #{bem.block_selector('component')} {
+          display: flex;
+        }
+      }
+      @include expect {
+        .gc-component {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include describe('element_selector()') {
+  @include it('returns an element selector') {
+    @include assert {
+      @include output {
+        #{bem.element_selector('element', '.gc-component')} {
+          display: flex;
+        }
+      }
+      @include expect {
+        .gc-component__element {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include describe('modifier_selector()') {
+  @include it('returns a modifier selector') {
+    @include assert {
+      @include output {
+        #{bem.modifier_selector('modifier', '.gc-component')} {
+          display: flex;
+        }
+      }
+      @include expect {
+        .gc-component_modifier {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include describe('block()') {
+  @include it('creates a block selector') {
+    @include assert {
+      @include output {
+        @include bem.block('component') {
+          display: flex;
+        }
+      }
+      @include expect {
+        .gc-component {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include describe('element()') {
+  @include it('creates an element selector inside a block') {
+    @include assert {
+      @include output {
+        @include bem.block('component') {
+          display: flex;
+
+          @include bem.element('element') {
+            display: flex;
+          }
+        }
+      }
+      @include expect {
+        .gc-component {
+          display: flex;
+        }
+        .gc-component__element {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include describe('modifier()') {
+  @include it('creates a modifier selector inside a block') {
+    @include assert {
+      @include output {
+        @include bem.block('component') {
+          display: flex;
+
+          @include bem.modifier('modifier') {
+            display: grid;
+          }
+        }
+      }
+      @include expect {
+        .gc-component {
+          display: flex;
+        }
+        .gc-component_modifier {
+          display: grid;
+        }
+      }
+    }
+  }
+
+  @include it('creates a modifier selector inside an element') {
+    @include assert {
+      @include output {
+        @include bem.block('component') {
+          display: flex;
+
+          @include bem.element('element') {
+            display: flex;
+
+            @include bem.modifier('modifier') {
+              display: grid;
+            }
+          }
+        }
+      }
+      @include expect {
+        .gc-component {
+          display: flex;
+        }
+        .gc-component__element {
+          display: flex;
+        }
+        .gc-component__element_modifier {
+          display: grid;
+        }
+      }
+    }
+  }
+}
