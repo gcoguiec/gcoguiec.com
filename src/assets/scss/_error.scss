@@ -1,0 +1,7 @@
+@function throw($message, $source) {
+  @error '[#{$source}] #{$message}';
+}
+
+@function throw_to_catch($message, $source) {
+  @return 'Error [#{$source}]: #{$message}';
+}

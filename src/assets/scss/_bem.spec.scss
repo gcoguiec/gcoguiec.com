@@ -1,11 +1,11 @@
 @use 'true' as *;
-@use 'mixins' as *;
+@use 'bem';
 
 @include describe('block_selector()') {
   @include it('returns a block with correct namespace prefix') {
     @include assert {
       @include output {
-        #{block_selector('component')} {
+        #{bem.block_selector('component')} {
           display: flex;
         }
       }
@@ -22,7 +22,7 @@
   @include it('returns an element selector') {
     @include assert {
       @include output {
-        #{element_selector('element', '.gc-component')} {
+        #{bem.element_selector('element', '.gc-component')} {
           display: flex;
         }
       }
@@ -39,7 +39,7 @@
   @include it('returns a modifier selector') {
     @include assert {
       @include output {
-        #{modifier_selector('modifier', '.gc-component')} {
+        #{bem.modifier_selector('modifier', '.gc-component')} {
           display: flex;
         }
       }
@@ -56,7 +56,7 @@
   @include it('creates a block selector') {
     @include assert {
       @include output {
-        @include block('component') {
+        @include bem.block('component') {
           display: flex;
         }
       }
@@ -73,10 +73,10 @@
   @include it('creates an element selector inside a block') {
     @include assert {
       @include output {
-        @include block('component') {
+        @include bem.block('component') {
           display: flex;
 
-          @include element('element') {
+          @include bem.element('element') {
             display: flex;
           }
         }
@@ -97,10 +97,10 @@
   @include it('creates a modifier selector inside a block') {
     @include assert {
       @include output {
-        @include block('component') {
+        @include bem.block('component') {
           display: flex;
 
-          @include modifier('modifier') {
+          @include bem.modifier('modifier') {
             display: grid;
           }
         }
@@ -119,13 +119,13 @@
   @include it('creates a modifier selector inside an element') {
     @include assert {
       @include output {
-        @include block('component') {
+        @include bem.block('component') {
           display: flex;
 
-          @include element('element') {
+          @include bem.element('element') {
             display: flex;
 
-            @include modifier('modifier') {
+            @include bem.modifier('modifier') {
               display: grid;
             }
           }

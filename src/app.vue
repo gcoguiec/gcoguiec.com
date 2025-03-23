@@ -3,9 +3,9 @@
 </template>
 
 <style lang="scss">
-@use '~/assets/scss/mixins' as *;
+@use '~/assets/scss/bem';
 
-@include block('app') {
+@include bem.block('app') {
   display: flex;
   flex-direction: column;
   height: 100%;

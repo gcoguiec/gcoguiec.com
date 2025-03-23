@@ -1,9 +1,7 @@
-@use 'constants' as *;
+@use 'constants';
 
-// 1. BEM
-// ------
 @function block_selector($name) {
-  @return '.' + $namespace + '-' + $name;
+  @return '.' + constants.$namespace + '-' + $name;
 }
 
 @function element_selector($name, $block: &) {
