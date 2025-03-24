@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useHeadSafe } from '@unhead/vue';
 
-const route = useRoute();
 const { t } = useI18n();
 
 useHeadSafe({
@@ -19,12 +17,7 @@ useHeadSafe({
     { name: 'author', content: 'Guillaume Coguiec' },
     { name: 'og:type', content: 'website' },
     { name: 'og:site_name', content: 'gcoguiec.com' },
-    { name: 'og:image', content: '/social-banner.jpg' },
-    {
-      name: 'og:url',
-      content: () =>
-        `${import.meta.env['url'] ?? 'http://localhost:3000'}${route.path}`
-    }
+    { name: 'og:image', content: '/social-banner.jpg' }
   ]
 });
 </script>
