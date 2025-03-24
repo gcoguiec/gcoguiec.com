@@ -15,7 +15,10 @@
           ? 'dark'
           : 'light';
         let theme = setting === 'system' ? preference : setting;
-        document.documentElement.classList.add(`gc-theme_${theme}`);
+        document.documentElement.classList.add(
+          'gc-theme_user-set',
+          `gc-theme_${theme}`
+        );
       })();
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
