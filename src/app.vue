@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useHeadSafe } from '@unhead/vue';
-import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import { useHeadSafe } from '@unhead/vue';
 
 const route = useRoute();
 const { t } = useI18n();
