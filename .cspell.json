@@ -30,7 +30,7 @@
     "/TS[^\\s]+/",
     "\\(#.+?\\)"
   ],
-  "words": ["unplugin"],
+  "words": ["unhead", "unplugin", "Guillaume", "Coguiec", "gcoguiec"],
   "overrides": [
     {
       "filename": "**/*.{ts,js}",

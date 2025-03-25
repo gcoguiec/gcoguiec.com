@@ -6,6 +6,7 @@ import ViteVueRouter from 'unplugin-vue-router/vite';
 import ViteVue from '@vitejs/plugin-vue';
 import ViteVueIntlify from '@intlify/unplugin-vue-i18n/vite';
 import ViteVueMacros from 'unplugin-vue-macros/dist/vite';
+import ViteVueLayouts from 'vite-plugin-vue-layouts';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssCustomMediaPlugin from 'postcss-custom-media';
 
@@ -38,7 +39,12 @@ export default {
     ViteVueRouter({
       extensions: ['.vue'],
       routesFolder: 'src/pages',
-      logs: true
+      logs: process.env['NODE_ENV'] === 'dev'
+    }),
+    ViteVueLayouts({
+      defaultLayout: 'default',
+      layoutsDirs: 'src/layouts',
+      pagesDirs: 'src/pages'
     }),
     ViteVueMacros({
       plugins: {
@@ -92,5 +98,8 @@ export default {
     },
     include: ['**/*.spec.ts'],
     setupFiles: ['vitest.setup.ts']
+  },
+  ssr: {
+    noExternal: [/vue-i18n/]
   }
 } satisfies UserConfig & { ssgOptions: ViteSSGOptions };

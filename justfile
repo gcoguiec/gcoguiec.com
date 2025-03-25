@@ -20,7 +20,7 @@ _vite-ssg *args:
   @DEBUG=vite-ssg:* pnpm vite-ssg {{args}}
 
 _prettier *args:
-  pnpm prettier {{args}} "**/*.{vue,js,cjs,mjs,ts,cts,mts,json5,md}"
+  pnpm prettier {{args}} "**/*.{vue,js,cjs,mjs,ts,cts,mts,json,json5,md}"
 
 _husky-precommit:
   pnpm lint-staged --no-stash
