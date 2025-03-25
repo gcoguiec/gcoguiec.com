@@ -9,6 +9,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@nuxt/devalue": "^2.0.2",
     "@unhead/vue": "2.0.0",
     "@vueuse/core": "^13.0.0",
     "lightningcss": "^1.29.3",
