@@ -26,6 +26,7 @@
     "@gcoguiec/stylelint-config": "^1.2.6",
     "@gcoguiec/tsconfig": "^1.0.0",
     "@intlify/unplugin-vue-i18n": "^6.0.5",
+    "@pinia/testing": "^1.0.0",
     "@types/glob": "^8.1.0",
     "@types/node": "^22.13.13",
     "@typescript-eslint/eslint-plugin": "^8.28.0",

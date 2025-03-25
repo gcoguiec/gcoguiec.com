@@ -1,5 +1,5 @@
 <template>
-  <div class="disjunction">
+  <div>
     <router-view />
   </div>
 </template>
