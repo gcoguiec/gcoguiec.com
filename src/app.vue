@@ -46,7 +46,7 @@ $themes: (
 }
 
 @include bem.block('theme') {
-  &:not(#{bem.modifier-selector('user-set')}) {
+  &:not(#{bem.modifier-selector('detected')}) {
     @each $theme, $options in $themes {
       @media (prefers-color-scheme: $theme) {
         color-scheme: $theme;

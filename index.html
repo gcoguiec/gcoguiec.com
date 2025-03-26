@@ -16,7 +16,7 @@
           : 'light';
         let theme = setting === 'system' ? preference : setting;
         document.documentElement.classList.add(
-          'gc-theme_user-set',
+          'gc-theme_detected',
           `gc-theme_${theme}`
         );
       })();
