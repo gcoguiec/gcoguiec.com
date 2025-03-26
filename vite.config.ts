@@ -4,6 +4,7 @@ import type { ViteSSGOptions } from 'vite-ssg';
 import path from 'node:path';
 import ViteVueRouter from 'unplugin-vue-router/vite';
 import ViteVue from '@vitejs/plugin-vue';
+import ViteVueDevTools from 'vite-plugin-vue-devtools';
 import ViteVueIntlify from '@intlify/unplugin-vue-i18n/vite';
 import ViteVueMacros from 'unplugin-vue-macros/dist/vite';
 import ViteVueLayouts from 'vite-plugin-vue-layouts';
@@ -41,6 +42,7 @@ export default {
       routesFolder: 'src/pages',
       logs: process.env['NODE_ENV'] === 'dev'
     }),
+    ViteVueDevTools(),
     ViteVueLayouts({
       defaultLayout: 'default',
       layoutsDirs: 'src/layouts',
