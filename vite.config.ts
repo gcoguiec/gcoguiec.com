@@ -42,7 +42,9 @@ export default {
       routesFolder: 'src/pages',
       logs: process.env['NODE_ENV'] === 'dev'
     }),
-    ViteVueDevTools(),
+    ViteVueDevTools({
+      launchEditor: 'hx'
+    }),
     ViteVueLayouts({
       defaultLayout: 'default',
       layoutsDirs: 'src/layouts',
