@@ -1,26 +1,26 @@
 @use 'constants';
 
-@function block_selector($name) {
+@function block-selector($name) {
   @return '.' + constants.$namespace + '-' + $name;
 }
 
-@function element_selector($name, $block: &) {
+@function element-selector($name, $block: &) {
   @return #{$block + '__' + $name};
 }
 
-@function modifier_selector($name, $block: &) {
+@function modifier-selector($name, $block: &) {
   @return #{$block + '_' + $name};
 }
 
 @mixin block($name) {
-  #{block_selector($name)} {
+  #{block-selector($name)} {
     @content;
   }
 }
 
 @mixin element($name, $block: &) {
   @at-root {
-    #{element_selector($name, $block)} {
+    #{element-selector($name, $block)} {
       @content;
     }
   }
@@ -28,7 +28,7 @@
 
 @mixin modifier($name, $block: &) {
   @at-root {
-    #{modifier_selector($name, $block)} {
+    #{modifier-selector($name, $block)} {
       @content;
     }
   }

@@ -2,7 +2,11 @@
   "name": "gcoguiec.com",
   "version": "1.0.0",
   "description": "My professional microsite",
-  "author": "Guillaume Coguiec <mail@gcoguiec.com> (https://github.com/gcoguiec/)",
+  "author": {
+    "name": "Guillaume Coguiec (Yugo)",
+    "email": "mail@gcoguiec.com",
+    "url": "https://github.com/gcoguiec/"
+  },
   "license": "BSD-2-Clause",
   "type": "module",
   "scripts": {
@@ -12,7 +16,6 @@
     "@nuxt/devalue": "^2.0.2",
     "@unhead/vue": "2.0.0",
     "@vueuse/core": "^13.0.0",
-    "lightningcss": "^1.29.3",
     "pinia": "^3.0.1",
     "unplugin-vue-macros": "^2.14.5",
     "unplugin-vue-router": "^0.12.0",
@@ -49,6 +52,7 @@
     "glob": "^11.0.1",
     "husky": "^9.1.7",
     "json5": "^2.2.3",
+    "lightningcss": "^1.29.3",
     "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "postcss-custom-media": "^11.0.5",

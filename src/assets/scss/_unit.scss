@@ -11,13 +11,13 @@
 // Converts unit value to rem with a specific base.
 @function to-rem-with-base($value, $base: null) {
   @if meta.type-of($value) != 'number' {
-    @return error.throw_to_catch(
+    @return error.throw-to-catch(
       $message: 'Value #{meta.inspect($value)} is not a number.',
       $source: 'to-rem-with-base()'
     );
   }
   @if meta.type-of($base) != 'number' {
-    @return error.throw_to_catch(
+    @return error.throw-to-catch(
       $message: 'Base #{meta.inspect($base)} is not a number.',
       $source: 'to-rem-with-base()'
     );

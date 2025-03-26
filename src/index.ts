@@ -1,15 +1,15 @@
 import { ViteSSG } from 'vite-ssg';
-
 import { createI18n } from 'vue-i18n';
 import messages from '@intlify/unplugin-vue-i18n/messages';
 import { routes } from 'vue-router/auto-routes';
+import devalue from '@nuxt/devalue';
+import { createPinia, type StateTree } from 'pinia';
+
 import { setupLayouts } from 'virtual:generated-layouts';
+import App from '~/app.vue';
+import { useStore } from '~/store/root';
 
 import '~/normalizer.scss';
-import App from '~/app.vue';
-import { createPinia, type StateTree } from 'pinia';
-import { useStore } from '~/store/root';
-import devalue from '@nuxt/devalue';
 
 const i18n = createI18n({
   legacy: false,
