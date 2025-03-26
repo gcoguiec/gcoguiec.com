@@ -45,7 +45,7 @@ export default {
     ...(!!process.env['GC_DEVTOOLS']
       ? [
           ViteVueDevTools({
-            launchEditor: 'hx'
+            launchEditor: process.env['EDITOR'] ?? 'hx'
           })
         ]
       : []),
