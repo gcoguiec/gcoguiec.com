@@ -28,13 +28,11 @@ useHeadSafe({
 
 <style lang="scss">
 @use 'sass:map';
-
-@use '~/assets/scss/constants';
 @use '~/assets/scss/bem';
 
 $themes: (
   dark: (
-    background-color: constants.$tuna
+    background-color: var(--gc-color-tuna)
   ),
   light: (
     background-color: white

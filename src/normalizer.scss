@@ -1,31 +1,35 @@
 @use 'sass:map';
-
-@use '~/assets/scss/constants' as *;
 @use '~/assets/scss/unit';
 
-$vars: (
-  selection: (
-    font-color: white,
-    background-color: $comet
-  ),
-  tap-highlight: (
-    color: rgba($ebony-clay, 0.3)
-  )
-);
-
 :root {
+  // Colors
+  --gc-color-comet: #634b85;
+  --gc-color-ebony-clay: #292948;
+  --gc-color-rhino: #343459;
+  --gc-color-tuna: #24243f;
+
+  // Fonts
+  --gc-font-regular: 400;
+  --gc-font-medium: 500;
+  --gc-font-semibold: 600;
+  --gc-font-bold: 700;
+  --gc-font-family: -apple-system, blinkmacsystemfont, avenir next, avenir, segoe ui, helvetica neue, helvetica, cantarell, ubuntu, roboto, noto, arial, sans-serif;
+
   // App
-  --app-border-radius: #{unit.to-rem(4)};
+  --gc-app-border-radius: #{unit.to-rem(4)};
 
   // Body
-  --body-font-family: #{$font-family};
-  --body-font-size: #{unit.to-rem(16)};
-  --body-font-size_large-up: #{unit.to-rem(15)};
-  --body-font-weight: #{$font-regular};
-  --body-letter-spacing: normal;
-  --body-letter-spacing_large-up: normal;
-  --body-line-height: #{unit.to-rem(24)};
-  --body-line-height_large-up: #{unit.to-rem(28)};
+  --gc-body-font-family: var(--gc-font-family);
+  --gc-body-font-size: #{unit.to-rem(16)};
+  --gc-body-font-size_large-up: #{unit.to-rem(15)};
+  --gc-body-font-weight: var(--gc-font-regular);
+  --gc-body-letter-spacing: normal;
+  --gc-body-letter-spacing_large-up: normal;
+  --gc-body-line-height: #{unit.to-rem(24)};
+  --gc-body-line-height_large-up: #{unit.to-rem(28)};
+  --gc-body-selection-font-color: white;
+  --gc-body-selection-background-color: var(--gc-color-comet);
+  --gc-body-tap-highlight-color: rgba(var(--gc-color-ebony-clay), 0.3);
 }
 
 html {
@@ -36,35 +40,35 @@ html {
 }
 
 body {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size);
+  font-family: var(--gc-body-font-family);
+  font-size: var(--gc-body-font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: var(--body-font-weight);
-  letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height);
+  font-weight: var(--gc-body-font-weight);
+  letter-spacing: var(--gc-body-letter-spacing);
+  line-height: var(--gc-body-line-height);
   margin: 0;
   padding: 0;
   min-height: 100svh;
 
   @media (--large-up) {
-    font-size: var(--body-font-size_large-up);
-    letter-spacing: var(--body-letter-spacing_large-up);
-    line-height: var(--body-line-height_large-up);
+    font-size: var(--gc-body-font-size_large-up);
+    letter-spacing: var(--gc-body-letter-spacing_large-up);
+    line-height: var(--gc-body-line-height_large-up);
   }
 }
 
 html,
 body {
-  -webkit-tap-highlight-color: map.get($vars, 'tap-highlight', 'color');
+  -webkit-tap-highlight-color: var(--gc-body-tap-highlight-color);
 
   ::selection {
-    color: map.get($vars, 'selection', 'font-color');
-    background-color: map.get($vars, 'selection', 'background-color');
+    color: var(--gc-body-selection-font-color);
+    background-color: var(--gc-body-selection-background-color);
   }
 
   img::selection {
-    background-color: map.get($vars, 'selection', 'background-color');
+    background-color: var(--gc-body-selection-background-color);
   }
 }
 

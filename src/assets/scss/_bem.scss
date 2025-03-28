@@ -1,7 +1,7 @@
-@use 'constants';
+$namespace: 'gc';
 
 @function block-selector($name) {
-  @return '.' + constants.$namespace + '-' + $name;
+  @return '.' + $namespace + '-' + $name;
 }
 
 @function element-selector($name, $block: &) {

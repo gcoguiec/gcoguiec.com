@@ -12,7 +12,6 @@ const { block } = useBem('layout');
 const store = useStore();
 const blockClass = computed(() =>
   block({
-    default: true,
     [store.theme]: true
   })
 );
@@ -37,3 +36,5 @@ watch<Theme>(
     <router-view />
   </div>
 </template>
+
+<style lang="scss" src="./default.scss"></style>

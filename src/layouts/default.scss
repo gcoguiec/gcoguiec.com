@@ -1,0 +1,15 @@
+@use '~/assets/scss/bem';
+
+@include bem.block('layout') {
+  --background-color: var(--gc-color-tuna);
+  --dot-color: var(--gc-color-rhino);
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(90deg, var(--background-color) 10px, transparent 1%) 50%,
+    linear-gradient(var(--background-color) 10px, transparent 1%) 50%,
+    var(--dot-color);
+  background-size: 12px 12px;
+}
