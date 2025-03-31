@@ -67,7 +67,7 @@
   }
 
   @include describe('when base is not provided') {
-    @include it('convers value to rem') {
+    @include it('converts value to rem') {
       @include assert-equal(unit.to-rem(1), 0.0625rem);
       @include assert-equal(unit.to-rem(56), 3.5rem);
       @include assert-equal(unit.to-rem(128), 8rem);

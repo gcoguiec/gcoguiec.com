@@ -6,7 +6,7 @@
     "**/node_modules/**",
     "**/**/CHANGELOG.md",
     "**/**/LICENSE.md",
-    "**/*.{json5,snap}",
+    "**/*.{json,snap}",
     ".cspell.json",
     "_site/**",
     "coverage/**",
